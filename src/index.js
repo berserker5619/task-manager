@@ -1,4 +1,5 @@
 const express = require('express')
+const cors=require('cors');
 
 require('./db/mongoose')
 
@@ -8,6 +9,7 @@ const taskRouter = require('./routers/task-router')
 const app = express()
 const port = process.env.PORT
 
+app.use(cors())
 app.use(express.json())//parse json to object
 app.use(userRouter)
 app.use(taskRouter)
