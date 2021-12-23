@@ -110,7 +110,7 @@ router.delete('/tasks/:id', auth, async (req, res) => {
 
 router.get('/tasks/count', auth, async (req, res) => {
     try {
-        const count = await Task.count({completed:false})
+        const count = await Task.count()
         if (!count) {
             res.send(404).send()
         }
